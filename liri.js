@@ -27,17 +27,18 @@ var getArtistNames = function(artist) {
     return artist.name;
   };
   
-  // Function for Spotify search
+  // Function for Spotify search (If no search term is put in, The Heigh Of Callousness is auto searched)
   var getMeSpotify = function(songName) {
     if (songName === undefined) {
       songName = "The Height Of Callousness";
     }
-  
+  // This allows the user to input the name of the track they wish to search
     spotify.search(
       {
         type: "track",
         query: songName
       },
+    //  If an error occurs during the search, Error occurred is logged and brings back the error
       function(err, data) {
         if (err) {
           console.log("Error occurred: " + err);
@@ -61,9 +62,9 @@ var getArtistNames = function(artist) {
 // Function for twitter search
 var getMyTweets = function() {
     var client = new Twitter(keys.twitter);
-  
+  // This pulls my screenname from the twitter api
     var params = {
-      screen_name: "joshkeaton"
+      screen_name: "Baldur407"
     };
     client.get("statuses/user_timeline", params, function(error, tweets, response) {
       if (!error) {
@@ -76,10 +77,10 @@ var getMyTweets = function() {
     });
   };
 
-// Function for movie search
+// Function for movie search. If no search term is placed, Blade Runner 2049 is auto searched and its info is populated by a console.log
 var getMeMovie = function(movieName) {
     if (movieName === undefined) {
-      movieName = "Upgrade";
+      movieName = "Blade Runner 2049";
     }
   
     var urlHit = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=full&tomatoes=true&apikey=trilogy";
@@ -101,7 +102,7 @@ var getMeMovie = function(movieName) {
     });
   };
 
-// Function for running commands based on text file
+// Function for running the parameters in random.txt which in this case is a spotify song search for "Green Berets For Breakfast"
 var doWhatItSays = function() {
     fs.readFile("random.txt", "utf8", function(error, data) {
       console.log(data);
@@ -117,7 +118,8 @@ var doWhatItSays = function() {
     });
   };
 
-// Function for determining which command is used
+// Function for determining which command is used; my-tweets, spotify-this-song, movie-this, do-what-it-says. If none of these commands are used
+// LIRI will return a console.log of "LIRI doesn't know that"
 var pick = function(caseData, functionData) {
     switch (caseData) {
     case "my-tweets":

@@ -2,7 +2,7 @@
 
 A simple node.js app designed to pull information from the twitter, spotify, and OMDB APIs.
 There are three commands, and each do different things:
-* my-tweets Pulls a list of 20 tweets from Josh Keaton's twitter
+* my-tweets Pulls a list of 20 tweets from my personal twitter
 * spotify-this-song "<insert song here>" Searches for the song put into the quotes and generates its information
 * movie-this "<name of movie>" Searches for the movie and generates its information
 * do-what-it-says has LIRI takig the text inside of random.txt and then use it to call spotify-this-song "Green Berets For Breakfast"

@@ -32,7 +32,7 @@ var getArtistNames = function(artist) {
     if (songName === undefined) {
       songName = "The Height Of Callousness";
     }
-  // This allows the user to input the name of the track they wish to search
+  // This allows the user to input the name of the track they wish to search with the spotify-this-song command
     spotify.search(
       {
         type: "track",
@@ -59,7 +59,7 @@ var getArtistNames = function(artist) {
     );
   };
 
-// Function for twitter search
+// Function for twitter search using my-tweets command 
 var getMyTweets = function() {
     var client = new Twitter(keys.twitter);
   // This pulls my screenname from the twitter api
